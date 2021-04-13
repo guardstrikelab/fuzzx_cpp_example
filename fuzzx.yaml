@@ -1,0 +1,16 @@
+base: ubuntu:18.04
+environment:
+  - CC=clang 
+  - CXX=clang++
+setup:
+  - sudo apt -y update
+  - sudo apt -y install clang make
+language: c
+target:
+  name: demo 
+  setup:
+    - $CXX -g ./demo.cc -fsanitize=address,fuzzer -o ./demo
+  corpus:
+    ./corpus 
+  harness:
+    ./demo 

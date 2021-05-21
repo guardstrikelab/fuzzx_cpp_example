@@ -15,4 +15,4 @@ target:
   harness:
     ./demo 
 
-app test
+app tes
